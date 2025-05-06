@@ -1,0 +1,408 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    color: #e50914;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header */
+header {
+    background-color: #141414;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e50914;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #e50914;
+    text-decoration: none;
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #e50914;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #b2070f;
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background-color: #333;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #555;
+    text-decoration: none;
+}
+
+/* Banner Hero */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/cinema-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Sección de películas */
+.section {
+    padding: 60px 0;
+}
+
+.section-title {
+    font-size: 32px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.movie-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+}
+
+.movie-poster {
+    width: 100%;
+    height: 375px;
+    object-fit: cover;
+}
+
+.movie-info {
+    padding: 20px;
+}
+
+.movie-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.movie-meta {
+    display: flex;
+    justify-content: space-between;
+    color: #777;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* Formularios */
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-text {
+    color: #777;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.error-msg {
+    color: #e50914;
+    margin-bottom: 15px;
+}
+
+.success-msg {
+    color: #28a745;
+    margin-bottom: 15px;
+}
+
+/* Selección de asientos */
+.screen {
+    height: 15px;
+    background-color: #ccc;
+    width: 70%;
+    margin: 0 auto 30px;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cinema-info {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.cinema-info li {
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+.seat {
+    width: 30px;
+    height: 30px;
+    margin: 3px;
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+}
+
+.seat-available {
+    background-color: #444;
+}
+
+.seat-selected {
+    background-color: #e50914;
+}
+
+.seat-occupied {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.seat-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.row-indicator {
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Perfil de usuario */
+.profile-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+}
+
+.profile-sidebar {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-main {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-nav {
+    list-style: none;
+}
+
+.profile-nav li {
+    margin-bottom: 10px;
+}
+
+.profile-nav li a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    border-radius: 4px;
+}
+
+.profile-nav li a:hover, .profile-nav li a.active {
+    background-color: #f5f5f5;
+    color: #e50914;
+}
+
+/* Tablas */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.table th, .table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+    }
+    
+    nav ul {
+        margin-top: 15px;
+    }
+    
+    .hero {
+        height: 400px;
+    }
+    
+    .hero h1 {
+        font-size: 32px;
+    }
+    
+    .profile-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #141414;
+    color: #fff;
+    padding: 40px 0;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #e50914;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #ccc;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    color: #777;
+}
