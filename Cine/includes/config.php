@@ -13,5 +13,7 @@ define('APP_URL', 'http://localhost/CINE');
 date_default_timezone_set('America/Mexico_City'); // Cambia según tu ubicación
 
 // Inicio de sesión
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 ?>

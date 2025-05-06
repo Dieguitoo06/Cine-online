@@ -406,3 +406,317 @@ footer {
     border-top: 1px solid #333;
     color: #777;
 }
+/* Estilos para la página de perfil */
+.perfil-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.perfil-sidebar {
+    flex: 0 0 300px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.perfil-contenido {
+    flex: 1;
+    min-width: 300px;
+}
+
+.perfil-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.perfil-menu li {
+    margin-bottom: 10px;
+}
+
+.perfil-menu a {
+    display: block;
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.perfil-menu a:hover {
+    background-color: #2980b9;
+}
+
+.perfil-menu a.active {
+    background-color: #2980b9;
+    font-weight: bold;
+}
+
+.info-usuario {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.reserva {
+    display: flex;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.reserva-imagen {
+    flex: 0 0 120px;
+    margin-right: 20px;
+}
+
+.reserva-detalles {
+    flex: 1;
+}
+
+.reserva-codigo {
+    background-color: #f1c40f;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.reserva-estado {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 3px;
+    color: white;
+    font-size: 0.9em;
+    margin-left: 10px;
+}
+
+.estado-confirmada {
+    background-color: #27ae60;
+}
+
+.estado-cancelada {
+    background-color: #e74c3c;
+}
+
+.mensaje-exito {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.sin-reservas {
+    padding: 30px;
+    text-align: center;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.btn-accion {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.btn-cancelar {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #e74c3c;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+.btn-cancelar:hover {
+    background-color: #c0392b;
+}
+/* Estilos de confirmar.php */
+.confirmacion {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.confirmacion h2 {
+    color: #27ae60;
+    border-bottom: 2px solid #27ae60;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.detalles-reserva {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.detalles-reserva .imagen {
+    flex: 0 0 200px;
+    margin-right: 20px;
+}
+
+.detalles-reserva .info {
+    flex: 1;
+}
+
+.codigo-reserva {
+    background-color: #f1c40f;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.btn-accion {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-accion:hover {
+    background-color: #2980b9;
+}
+
+.btn-imprimir {
+    background-color: #9b59b6;
+}
+
+.btn-imprimir:hover {
+    background-color: #8e44ad;
+}
+
+/* Estilos de seleccion_asientos.php */
+.contenedor-sala {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 800px;
+}
+
+.pantalla {
+    background-color: #ccc;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+
+.filas-asientos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.fila {
+    display: flex;
+    gap: 10px;
+}
+
+.asiento {
+    width: 30px;
+    height: 30px;
+    background-color: #3498db;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.asiento:hover {
+    background-color: #2980b9;
+}
+
+.asiento.reservado {
+    background-color: #e74c3c;
+    cursor: not-allowed;
+}
+
+.asiento.seleccionado {
+    background-color: #2ecc71;
+}
+
+.info-resumen {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+.btn-confirmar {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn-confirmar:hover {
+    background-color: #2980b9;
+}
+
+.btn-confirmar:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+.leyenda {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.leyenda-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.leyenda-color {
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+}
+
+.leyenda-disponible {
+    background-color: #3498db;
+}
+
+.leyenda-seleccionado {
+    background-color: #2ecc71;
+}
+
+.leyenda-reservado {
+    background-color: #e74c3c;
+}

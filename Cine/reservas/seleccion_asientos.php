@@ -3,7 +3,7 @@
 session_start();
 
 // Verificar si el usuario está logueado
-if (!isset($_SESSION['usuario_id'])) {
+if (!isset($_SESSION['user_id'])) {
     header('Location: ../auth/login.php?redirigido=true');
     exit;
 }
@@ -39,7 +39,7 @@ if ($resultado->num_rows == 0) {
 $funcion = $resultado->fetch_assoc();
 
 // Obtener asientos ya reservados
-$query = "SELECT asiento FROM reservas WHERE funcion_id = ?";
+$query = "SELECT codigo_reserva FROM reservas WHERE funcion_id = ?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $funcion_id);
 $stmt->execute();
@@ -61,120 +61,6 @@ $asientos_reservados_json = json_encode($asientos_reservados);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seleccionar Asientos - <?php echo $funcion['titulo']; ?></title>
     <link rel="stylesheet" href="../css/styles.css">
-    <style>
-        .contenedor-sala {
-            margin: 20px auto;
-            width: 80%;
-            max-width: 800px;
-        }
-        
-        .pantalla {
-            background-color: #ccc;
-            text-align: center;
-            padding: 10px;
-            margin-bottom: 30px;
-            border-radius: 5px;
-        }
-        
-        .filas-asientos {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .fila {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .asiento {
-            width: 30px;
-            height: 30px;
-            background-color: #3498db;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .asiento:hover {
-            background-color: #2980b9;
-        }
-        
-        .asiento.reservado {
-            background-color: #e74c3c;
-            cursor: not-allowed;
-        }
-        
-        .asiento.seleccionado {
-            background-color: #2ecc71;
-        }
-        
-        .info-resumen {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #f8f9fa;
-            border-radius: 5px;
-        }
-        
-        .btn-confirmar {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            margin-top: 20px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-        
-        .btn-confirmar:hover {
-            background-color: #2980b9;
-        }
-        
-        .btn-confirmar:disabled {
-            background-color: #95a5a6;
-            cursor: not-allowed;
-        }
-        
-        .leyenda {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            gap: 20px;
-        }
-        
-        .leyenda-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .leyenda-color {
-            width: 15px;
-            height: 15px;
-            border-radius: 3px;
-        }
-        
-        .leyenda-disponible {
-            background-color: #3498db;
-        }
-        
-        .leyenda-seleccionado {
-            background-color: #2ecc71;
-        }
-        
-        .leyenda-reservado {
-            background-color: #e74c3c;
-        }
-    </style>
 </head>
 <body>
     <?php include '../includes/header.php'; ?>

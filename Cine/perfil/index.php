@@ -3,7 +3,7 @@
 session_start();
 
 // Verificar si el usuario está logueado
-if (!isset($_SESSION['usuario_id'])) {
+if (!isset($_SESSION['user_id'])) {
     header('Location: ../auth/login.php?redirigido=true');
     exit;
 }
@@ -12,7 +12,7 @@ if (!isset($_SESSION['usuario_id'])) {
 require_once '../includes/config.php';
 require_once '../includes/db.php';
 
-$usuario_id = $_SESSION['usuario_id'];
+$usuario_id = $_SESSION['user_id'];
 
 // Obtener información del usuario
 $query = "SELECT * FROM usuarios WHERE id = ?";
@@ -56,114 +56,6 @@ if (isset($_GET['accion'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Perfil - CINE-ONLINE</title>
     <link rel="stylesheet" href="../css/styles.css">
-    <style>
-        .perfil-contenedor {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .perfil-sidebar {
-            flex: 0 0 300px;
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        
-        .perfil-contenido {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .perfil-menu {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .perfil-menu li {
-            margin-bottom: 10px;
-        }
-        
-        .perfil-menu a {
-            display: block;
-            padding: 10px;
-            background-color: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        
-        .perfil-menu a:hover {
-            background-color: #2980b9;
-        }
-        
-        .info-usuario {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .reserva {
-            display: flex;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .reserva-imagen {
-            flex: 0 0 120px;
-            margin-right: 20px;
-        }
-        
-        .reserva-detalles {
-            flex: 1;
-        }
-        
-        .reserva-codigo {
-            background-color: #f1c40f;
-            padding: 5px 10px;
-            border-radius: 5px;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-        
-        .reserva-estado {
-            display: inline-block;
-            padding: 3px 8px;
-            border-radius: 3px;
-            color: white;
-            font-size: 0.9em;
-            margin-left: 10px;
-        }
-        
-        .estado-confirmada {
-            background-color: #27ae60;
-        }
-        
-        .estado-cancelada {
-            background-color: #e74c3c;
-        }
-        
-        .mensaje-exito {
-            background-color: #d4edda;
-            color: #155724;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-        
-        .sin-reservas {
-            padding: 30px;
-            text-align: center;
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-    </style>
 </head>
 <body>
     <?php include '../includes/header.php'; ?>
@@ -242,7 +134,7 @@ if (isset($_GET['accion'])) {
                     <div class="sin-reservas">
                         <h3>No tienes reservas aún</h3>
                         <p>Explora nuestras películas y reserva tus entradas ahora.</p>
-                        <a href="../peliculas.php" class="btn-accion">Ver Películas</a>
+                        <a href="../reservas" class="btn-accion">Ver Películas</a>
                     </div>
                 <?php endif; ?>
             </div>

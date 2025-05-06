@@ -104,7 +104,7 @@ require_once '../includes/header.php';
                                 
                                 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
                                     <?php foreach ($funciones_fecha as $funcion): ?>
-                                        <a href="<?php echo isLoggedIn() ? APP_URL . '/reservas/seleccion_asientos.php?funcion_id=' . $funcion['id'] : APP_URL . '/auth/login.php'; ?>" class="btn <?php echo isLoggedIn() ? 'btn-primary' : 'btn-secondary'; ?>" style="margin-bottom: 10px;">
+                                        <a href="<?php echo isLoggedIn() ? APP_URL . '../reservas/seleccion_asientos.php?funcion_id=' . $funcion['id'] : APP_URL . '../auth/login.php'; ?>" class="btn <?php echo isLoggedIn() ? 'btn-primary' : 'btn-secondary'; ?>" style="margin-bottom: 10px;">
                                             <?php echo date("H:i", strtotime($funcion['hora'])); ?> - <?php echo $funcion['sala']; ?> - $<?php echo number_format($funcion['precio'], 2); ?>
                                         </a>
                                     <?php endforeach; ?>
@@ -147,7 +147,7 @@ require_once '../includes/header.php';
                                 <span><?php echo $pelicula['genero']; ?></span>
                                 <span><?php echo $pelicula['duracion']; ?> min</span>
                             </div>
-                            <a href="<?php echo APP_URL; ?>/reservas/index.php?id=<?php echo $pelicula['id']; ?>" class="btn btn-primary">Ver funciones</a>
+                            <a href="<?php echo APP_URL; ?>../reservas/index.php?id=<?php echo $pelicula['id']; ?>" class="btn btn-primary">Ver funciones</a>
                         </div>
                     </div>
                 <?php endforeach; ?>
