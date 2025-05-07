@@ -20,7 +20,24 @@ Sistema web para la reserva de entradas de cine. Los usuarios pueden registrarse
 - **Servidor local**: XAMPP
 
 ## 📦 Estructura del Proyecto
-
+cine_online/
+├── index.php
+├── login.php
+├── registro.php
+├── peliculas/
+│ └── ver.php
+├── funciones/
+│ └── reservar.php
+├── perfil/
+│ └── index.php
+├── admin/
+│ └── ...
+├── includes/
+│ ├── conexion.php
+│ └── funciones.php
+├── assets/
+│ └── imágenes, estilos, scripts
+└── db_setup.sql
 --------------------------------
 
 ## ⚙️ Instalación
