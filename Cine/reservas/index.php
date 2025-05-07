@@ -76,7 +76,7 @@ require_once '../includes/header.php';
                 <?php if (!empty($pelicula_seleccionada['imagen']) && file_exists('../img/' . $pelicula_seleccionada['imagen'])): ?>
                     <img src="<?php echo APP_URL; ?>/img/<?php echo $pelicula_seleccionada['imagen']; ?>" alt="<?php echo $pelicula_seleccionada['titulo']; ?>" style="width: 100%; border-radius: 8px;">
                 <?php else: ?>
-                    <img src="<?php echo APP_URL; ?>/img/default-movie.jpg" alt="<?php echo $pelicula_seleccionada['titulo']; ?>" style="width: 100%; border-radius: 8px;">
+                    <img src="<?php echo APP_URL; ?>/img/Toy.jpg" alt="<?php echo $pelicula_seleccionada['titulo']; ?>" style="width: 100%; border-radius: 8px;">
                 <?php endif; ?>
             </div>
             
@@ -138,7 +138,7 @@ require_once '../includes/header.php';
                         <?php if (!empty($pelicula['imagen']) && file_exists('../img/' . $pelicula['imagen'])): ?>
                             <img src="<?php echo APP_URL; ?>/img/<?php echo $pelicula['imagen']; ?>" alt="<?php echo $pelicula['titulo']; ?>" class="movie-poster">
                         <?php else: ?>
-                            <img src="<?php echo APP_URL; ?>/img/default-movie.jpg" alt="<?php echo $pelicula['titulo']; ?>" class="movie-poster">
+                            <img src="<?php echo APP_URL; ?>/img/Toy.jpg" alt="<?php echo $pelicula['titulo']; ?>" class="movie-poster">
                         <?php endif; ?>
                         
                         <div class="movie-info">

@@ -92,7 +92,10 @@ if (isset($_GET['accion'])) {
                     <?php while ($reserva = $resultado->fetch_assoc()): ?>
                         <?php
                         // Obtener los asientos de la reserva
-                        $query = "SELECT asiento FROM detalle_reservas WHERE reserva_id = ?";
+                        $query = "SELECT a.fila, a.numero
+                                  FROM detalle_reservas dr
+                                  JOIN asientos a ON dr.asiento_id = a.id
+                                  WHERE dr.reserva_id = ?";
                         $stmt = $conn->prepare($query);
                         $stmt->bind_param("i", $reserva['id']);
                         $stmt->execute();
@@ -100,7 +103,7 @@ if (isset($_GET['accion'])) {
                         
                         $asientos = [];
                         while ($asiento = $asientos_result->fetch_assoc()) {
-                            $asientos[] = $asiento['asiento'];
+                            $asientos[] = $asiento['fila'] . $asiento['numero'];
                         }
                         ?>
                         <div class="reserva">
@@ -110,7 +113,7 @@ if (isset($_GET['accion'])) {
                             <div class="reserva-detalles">
                                 <h3><?php echo $reserva['titulo']; ?></h3>
                                 <div>
-                                    <span class="reserva-codigo"><?php echo $reserva['codigo']; ?></span>
+                                    <span class="reserva-codigo"><?php echo $reserva['codigo_reserva']; ?></span>
                                     <span class="reserva-estado estado-<?php echo $reserva['estado']; ?>">
                                         <?php echo ucfirst($reserva['estado']); ?>
                                     </span>
@@ -119,7 +122,6 @@ if (isset($_GET['accion'])) {
                                 <p><strong>Hora:</strong> <?php echo date('H:i', strtotime($reserva['hora'])); ?></p>
                                 <p><strong>Sala:</strong> <?php echo $reserva['sala_nombre']; ?></p>
                                 <p><strong>Asientos:</strong> <?php echo implode(', ', $asientos); ?></p>
-                                <p><strong>Total pagado:</strong> $<?php echo number_format($reserva['total'], 2); ?></p>
                                 <p><small>Reserva realizada el: <?php echo date('d/m/Y H:i', strtotime($reserva['fecha_reserva'])); ?></small></p>
                                 
                                 <?php if ($reserva['estado'] === 'confirmada' && strtotime($reserva['fecha'] . ' ' . $reserva['hora']) > time()): ?>
@@ -130,17 +132,17 @@ if (isset($_GET['accion'])) {
                             </div>
                         </div>
                     <?php endwhile; ?>
-                <?php else: ?>
+                <?php else: ?>  
                     <div class="sin-reservas">
                         <h3>No tienes reservas aún</h3>
                         <p>Explora nuestras películas y reserva tus entradas ahora.</p>
-                        <a href="../reservas" class="btn-accion">Ver Películas</a>
+                        <a href=" ../reservas/index.php" class="btn-accion">Ver Películas</a>
                     </div>
                 <?php endif; ?>
             </div>
         </div>
     </div>
-    
+   
     <?php include '../includes/footer.php'; ?>
 </body>
 </html>

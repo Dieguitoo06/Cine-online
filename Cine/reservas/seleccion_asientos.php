@@ -39,7 +39,11 @@ if ($resultado->num_rows == 0) {
 $funcion = $resultado->fetch_assoc();
 
 // Obtener asientos ya reservados
-$query = "SELECT codigo_reserva FROM reservas WHERE funcion_id = ?";
+$query = "SELECT a.fila, a.numero 
+          FROM asientos a 
+          JOIN detalle_reservas dr ON a.id = dr.asiento_id 
+          JOIN reservas r ON dr.reserva_id = r.id 
+          WHERE r.funcion_id = ? AND r.estado != 'cancelada'";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $funcion_id);
 $stmt->execute();
@@ -47,7 +51,8 @@ $resultado = $stmt->get_result();
 
 $asientos_reservados = [];
 while ($fila = $resultado->fetch_assoc()) {
-    $asientos_reservados[] = $fila['asiento'];
+    // Formato: "A1", "B5", etc.
+    $asientos_reservados[] = $fila['fila'] . $fila['numero'];
 }
 
 // Convertir a formato JSON para usar en JavaScript

@@ -18,7 +18,7 @@ if ($result->num_rows > 0) {
     <div class="hero-content">
         <h1>Bienvenido a CineOnline</h1>
         <p>Reserva tus entradas y disfruta de las mejores películas en cartelera</p>
-        <a href="<?php echo APP_URL; ?>../reservas" class="btn btn-primary">Ver películas</a>
+        <a href="<?php echo APP_URL; ?> /reservas/index.php" class="btn btn-primary">Ver películas</a>
     </div>
 </div>
 
@@ -33,7 +33,7 @@ if ($result->num_rows > 0) {
                         <?php if (!empty($pelicula['imagen']) && file_exists('img/' . $pelicula['imagen'])): ?>
                             <img src="<?php echo APP_URL; ?>/img/<?php echo $pelicula['imagen']; ?>" alt="<?php echo $pelicula['titulo']; ?>" class="movie-poster">
                         <?php else: ?>
-                            <img src="<?php echo APP_URL; ?>/img/default-movie.jpg" alt="<?php echo $pelicula['titulo']; ?>" class="movie-poster">
+                            <img src="<?php echo APP_URL; ?>/img/Toy.jpg" alt="<?php echo $pelicula['titulo']; ?>" class="movie-poster">
                         <?php endif; ?>
                         
                         <div class="movie-info">

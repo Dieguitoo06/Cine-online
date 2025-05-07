@@ -65,7 +65,8 @@ CREATE TABLE IF NOT EXISTS asientos (
 );
 
 -- Tabla de reservas
-CREATE TABLE IF NOT EXISTS reservas (
+CREATE TABLE IF NOT EXISTS reservas 
+(
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT NOT NULL,
     funcion_id INT NOT NULL,
